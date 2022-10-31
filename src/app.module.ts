@@ -11,6 +11,9 @@ import { Pedido } from './pedido/entities/pedido.entity';
 import { PedidoModule } from './pedido/pedido.module';
 import { Produto } from './produto/entities/produto.entity';
 import { ProdutoModule } from './produto/produto.module';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { AuthService } from './auth/auth.service';
 
 @Module({
   imports: [
@@ -29,8 +32,10 @@ import { ProdutoModule } from './produto/produto.module';
     EnderecoModule,
     PedidoModule,
     ProdutoModule,
+    AuthModule,
+    UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AuthModule],
 })
 export class AppModule {}
